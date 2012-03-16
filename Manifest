@@ -1,0 +1,16 @@
+CHANGELOG
+Manifest
+README.md
+Rakefile
+init.rb
+lib/jackfs/file_store.rb
+lib/jackfs/adapters/db_adapter.rb
+lib/jackfs/adapters/s3_adapter.rb
+lib/jackfs/adapters/file_adapter.rb
+spec/adapters/db_adapter_spec.rb
+spec/adapters/file_adapter_spec.rb
+spec/adapters/s3_adapter_spec.rb
+
+jackfs.gemspec
+spec/jackfs.rb
+spec/spec_helper.rb
