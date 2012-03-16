@@ -40,7 +40,3 @@ system.
 ---
 
 # Report any problems to team@jackrussellsoftware.com
-
-
-
-
