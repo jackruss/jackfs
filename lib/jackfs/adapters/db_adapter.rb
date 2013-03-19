@@ -2,7 +2,7 @@ require 'base64'
 require 'fileutils'
 
 begin
-  require 'sequel'
+  require 'sequel/no_core_ext'
 rescue LoadError
   puts 'sequel gem is required to use file store'
 end
