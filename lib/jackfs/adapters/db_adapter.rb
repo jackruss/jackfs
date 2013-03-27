@@ -20,9 +20,8 @@ module Jackfs
 
       FileUtils.mkdir_p temp_file_path
 
-      yml = YAML.load_file(config_file)[@app_env.to_s]
       @connection = ENV["JACKFS_DB_URL"]
-      @table_name = yml["table_name"]
+      @table_name = ENV["JACKFS_TABLE_NAME"]
 
       # Clean up temp files
       FileUtils.remove_file(File.join(temp_file_path,'/*'), true)
@@ -63,10 +62,5 @@ module Jackfs
     def temp_file_path
       File.join(@app_root, TEMP_PATH)
     end
-
-    def config_file
-      File.join(@app_root, Jackfs::FileStore::CONFIG_FILE)
-    end
-
   end
 end
