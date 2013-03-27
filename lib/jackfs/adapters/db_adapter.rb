@@ -21,7 +21,7 @@ module Jackfs
       FileUtils.mkdir_p temp_file_path
 
       yml = YAML.load_file(config_file)[@app_env.to_s]
-      @connection = yml["connection"]
+      @connection = ENV["JACKFS_DB_URL"]
       @table_name = yml["table_name"]
 
       # Clean up temp files
