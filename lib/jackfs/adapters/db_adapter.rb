@@ -30,7 +30,12 @@ module Jackfs
 
     def store(f, name)
       body = Base64.encode64(f.read)
-      data << { :name => name, :body => body, :created_at => Time.now, :updated_at => Time.now  }
+      data.insert(
+        :name       => name,
+        :body       => body,
+        :created_at => Time.now,
+        :updated_at => Time.now
+      )
     end
 
     def get(name)
