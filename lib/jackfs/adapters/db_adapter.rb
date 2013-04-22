@@ -1,5 +1,6 @@
 require 'base64'
 require 'fileutils'
+require 'uri'
 
 begin
   require 'sequel/no_core_ext'
@@ -21,7 +22,7 @@ module Jackfs
       FileUtils.mkdir_p temp_file_path
 
       yml = YAML.load_file(config_file)[@app_env.to_s]
-      @connection = yml["connection"]
+      @connection = uri_escape(yml["connection"])
       @table_name = yml["table_name"]
 
       # Clean up temp files
@@ -72,6 +73,14 @@ module Jackfs
     def config_file
       File.join(@app_root, Jackfs::FileStore::CONFIG_FILE)
     end
+
+    def uri_escape(uri)
+      begin
+        URI.escape(uri)
+      rescue Exception => e
+        $stdout.puts "Error encountered when parsing #{uri} - #{e.message}"
+      end
+    end    
 
   end
 end

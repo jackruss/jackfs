@@ -1,6 +1,7 @@
 require 'rspec'
 require 'fileutils'
 require 'yaml'
+require 'uri'
 
 
 $: << File.join(File.dirname(__FILE__), '..', 'lib')
