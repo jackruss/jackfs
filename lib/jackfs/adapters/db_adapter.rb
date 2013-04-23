@@ -22,8 +22,8 @@ module Jackfs
       FileUtils.mkdir_p temp_file_path
 
       yml = YAML.load_file(config_file)[@app_env.to_s]
-      @connection = uri_escape(yml["connection"])
-      @table_name = yml["table_name"]
+      @connection ||= uri_escape(ENV["JACKFS_DB_URL"] || yml["connection"])
+      @table_name ||= ENV["JACKFS_TABLE_NAME"] || yml["table_name"]
 
       # Clean up temp files
       FileUtils.remove_file(File.join(temp_file_path,'/*'), true)
