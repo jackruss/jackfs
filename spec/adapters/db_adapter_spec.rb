@@ -25,7 +25,7 @@ describe "Jackfs Db Adapter" do
   end
 
   it "should save the file in db using the given name" do
-    @dba.store(File.open(File.dirname(__FILE__) + '/../fixtures/test.pdf', 'r'),"COOLBEANS").should eq(1)
+    @dba.store(File.open(File.dirname(__FILE__) + '/../fixtures/test.pdf', 'r'),"COOLBEANS").should be_true
   end
   
   it "should allow connection string with odd characters" do
